@@ -1,4 +1,0 @@
-interface:
-  display_name: "Audio Telegram/Zalo OpenClaw"
-  short_description: "Cài STT và TTS Telegram/Zalo cho OpenClaw"
-  default_prompt: "Use $cai-dat-audio-local-openclaw to set up or repair Telegram/Zalo voice input and voice replies safely."

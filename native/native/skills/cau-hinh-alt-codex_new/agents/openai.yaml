@@ -1,4 +1,0 @@
-interface:
-  display_name: "Cấu hình ALT Codex và sửa lỗi 401"
-  short_description: "Cài Codex ALT, bắt buộc auth flag và test thật"
-  default_prompt: "Dùng $cau-hinh-alt-codex để cấu hình ALT, bắt buộc requires_openai_auth=true và kiểm thử thật bằng codex exec."
