@@ -1,5 +1,11 @@
 # Prompt cài OpenClaw local
 
+Repo chính thức: https://github.com/giangcr7/openclaw-local-installer
+
+Bản thử nghiệm: https://github.com/giangcr7/openclaw-local-installer/releases/tag/v0.1.0-preview
+
+Chưa xác nhận cài end-to-end trên cả ba OS. Thử trên máy test trước; gặp lỗi phải dừng và báo, không tự coi cài thành công hoặc ghi đè runtime cũ.
+
 Dùng prompt này khi cài qua UltraViewer trên chính máy khách:
 
 ```text
@@ -35,7 +41,15 @@ Yêu cầu:
 
 ## Dùng link bootstrap
 
-Thay `BUNDLE_URL` và `BUNDLE_SHA256` bằng giá trị trong GitHub Release tương ứng. Không đặt secret vào URL.
+Người cài/Antigravity lấy bundle và checksum từ cùng bản Release, không yêu cầu khách tự chép mã hash. URL bundle của bản thử nghiệm:
+
+https://github.com/giangcr7/openclaw-local-installer/releases/download/v0.1.0-preview/native-full-bundle.tar.gz
+
+URL checksum:
+
+https://github.com/giangcr7/openclaw-local-installer/releases/download/v0.1.0-preview/native-full-bundle.sha256
+
+Thay `BUNDLE_URL` và `BUNDLE_SHA256` trong lệnh bên dưới bằng giá trị lấy từ bản Release. Không đặt secret vào URL.
 
 Windows chạy PowerShell Administrator:
 
