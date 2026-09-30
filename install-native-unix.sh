@@ -30,7 +30,7 @@ json.dump({'member': "$NAME", 'assistant_name': 'Trợ lý OpenClaw', 'owner_ids
 PY
 chmod 600 "$BASE/settings.json"
 openclaw onboard --non-interactive --accept-risk --mode local --auth-choice skip --skip-channels --skip-search --skip-skills --install-daemon --skip-health --workspace "$WORKSPACE" --gateway-bind loopback --gateway-auth token --gateway-port 18789 --gateway-token chatbot >/dev/null
-python3 "$BASE/configure.py" --settings "$BASE/settings.json" --root "$ROOT" --workspace "$WORKSPACE"
+python3 "$BASE/configure.py" --settings "$BASE/settings.json" --root "$ROOT" --workspace "$WORKSPACE" --overwrite
 rm -f "$BASE/settings.json"
 for skill in "$BASE/native/skills"/*; do [[ -d "$skill" ]] || continue; cp -a "$skill" "$WORKSPACE/skills/"; done
 ENSURE="$WORKSPACE/skills/tao-tro-ly-openclaw-windows-macos-linux/scripts/ensure_default_telegram_owner.py"

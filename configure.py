@@ -9,12 +9,13 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--settings', required=True)
 parser.add_argument('--root', required=True)
 parser.add_argument('--workspace', default='/root/.openclaw/workspace')
+parser.add_argument('--overwrite', action='store_true')
 args = parser.parse_args()
 settings = json.loads(pathlib.Path(args.settings).read_text())
 root = pathlib.Path(args.root)
 root.mkdir(parents=True, exist_ok=True)
 config = root / 'openclaw.json'
-if config.exists():
+if config.exists() and not args.overwrite:
     raise SystemExit('Refusing to overwrite an existing member configuration')
 member = settings['member']
 for key in ('telegram_token', 'api_key', 'base_url', 'model'):
