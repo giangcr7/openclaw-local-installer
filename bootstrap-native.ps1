@@ -5,6 +5,7 @@ param(
   [Parameter(Mandatory=$true)][string]$Name,
   [Parameter(Mandatory=$true)][string]$OwnerIds,
   [string]$GroupId = '', [string]$BaseUrl = 'https://provider.example/v1', [Parameter(Mandatory=$true)][string]$Model,
+  [string]$Profile = 'basic-assistant-full', [string[]]$Modules = @(), [switch]$FullBundle,
   [switch]$DryRun
 )
 $ErrorActionPreference='Stop'
@@ -18,7 +19,10 @@ try {
   if ($actual -ne $Sha256.ToLowerInvariant()) { throw "SHA256 mismatch: $actual" }
   tar -xzf $archive -C $work
   $installer = Join-Path $work 'install-native-windows.ps1'
-  if ($DryRun) { & $installer -Name $Name -OwnerIds $OwnerIds -GroupId $GroupId -BaseUrl $BaseUrl -Model $Model -DryRun; exit $LASTEXITCODE }
-  & $installer -Name $Name -OwnerIds $OwnerIds -GroupId $GroupId -BaseUrl $BaseUrl -Model $Model
+  $installerArgs = @('-Name', $Name, '-OwnerIds', $OwnerIds, '-GroupId', $GroupId, '-BaseUrl', $BaseUrl, '-Model', $Model, '-Profile', $Profile)
+  foreach ($module in $Modules) { $installerArgs += @('-Modules', $module) }
+  if ($FullBundle) { $installerArgs += '-FullBundle' }
+  if ($DryRun) { $installerArgs += '-DryRun' }
+  & $installer @installerArgs
   if ($LASTEXITCODE -ne 0) { throw 'Native installer failed.' }
 } finally { if (Test-Path $work) { Remove-Item $work -Recurse -Force } }
