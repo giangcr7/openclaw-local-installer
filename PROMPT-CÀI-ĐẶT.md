@@ -2,16 +2,16 @@
 
 ## Nguồn tải chính thức
 
-GitHub repository chính thức hiện có release preview cũ. Release V6 chưa được
-publish nên không được dùng link preview đó để tải bundle V6.
+GitHub repository chính thức và release V6 đã được publish. Không dùng release
+`v0.1.2-preview` cũ để tải bundle V6.
 
 ```text
 Repository: https://github.com/giangcr7/openclaw-local-installer
-Release V6 sau khi publish: <GITHUB_V6_RELEASE_URL>
-Native bundle sau khi publish: <GITHUB_V6_NATIVE_BUNDLE_URL>
-SHA256 sau khi publish: <GITHUB_V6_SHA256_URL>
-Bootstrap Unix sau khi publish: <GITHUB_V6_BOOTSTRAP_UNIX_URL>
-Bootstrap Windows sau khi publish: <GITHUB_V6_BOOTSTRAP_WINDOWS_URL>
+Release V6: https://github.com/giangcr7/openclaw-local-installer/releases/tag/v0.2.0-v6-20261006
+Native bundle: https://github.com/giangcr7/openclaw-local-installer/releases/download/v0.2.0-v6-20261006/native-full-bundle.tar.gz
+SHA256: https://github.com/giangcr7/openclaw-local-installer/releases/download/v0.2.0-v6-20261006/native-full-bundle.sha256
+Bootstrap Unix: https://github.com/giangcr7/openclaw-local-installer/releases/download/v0.2.0-v6-20261006/bootstrap-native.sh
+Bootstrap Windows: https://github.com/giangcr7/openclaw-local-installer/releases/download/v0.2.0-v6-20261006/bootstrap-native.ps1
 ```
 
 Không đặt Telegram token, API key, mật khẩu SSH, cookie hoặc session vào URL,
@@ -42,7 +42,7 @@ Thông tin thành viên:
 
 Nguồn V6:
 - Repository: https://github.com/giangcr7/openclaw-local-installer
-- Release V6: thay bằng các URL `<GITHUB_V6_...>` sau khi publish; không dùng `v0.1.2-preview`
+- Release V6: https://github.com/giangcr7/openclaw-local-installer/releases/tag/v0.2.0-v6-20261006
 - Template nội bộ dự phòng: /root/Apps/member_vps/template-releases/member-vps-v6-20261006
 
 Yêu cầu thực hiện:
@@ -103,9 +103,9 @@ Thông tin khách hàng:
 
 Link tải:
 - Repository: https://github.com/giangcr7/openclaw-local-installer
-- Release V6: thay bằng các URL `<GITHUB_V6_...>` sau khi publish; không dùng `v0.1.2-preview`
-- Native bundle: `<GITHUB_V6_NATIVE_BUNDLE_URL>`
-- SHA256: `<GITHUB_V6_SHA256_URL>`
+- Release V6: https://github.com/giangcr7/openclaw-local-installer/releases/tag/v0.2.0-v6-20261006
+- Native bundle: https://github.com/giangcr7/openclaw-local-installer/releases/download/v0.2.0-v6-20261006/native-full-bundle.tar.gz
+- SHA256: https://github.com/giangcr7/openclaw-local-installer/releases/download/v0.2.0-v6-20261006/native-full-bundle.sha256
 
 Yêu cầu thực hiện:
 1. Tải bundle, tải file SHA256 và xác minh checksum trước khi giải nén.
@@ -129,17 +129,17 @@ Yêu cầu thực hiện:
 Linux/macOS chạy Terminal với quyền root:
 
 ```bash
-curl -fL -o bootstrap-native.sh <GITHUB_V6_BOOTSTRAP_UNIX_URL>
+curl -fL -o bootstrap-native.sh https://github.com/giangcr7/openclaw-local-installer/releases/download/v0.2.0-v6-20261006/bootstrap-native.sh
 chmod +x bootstrap-native.sh
-sudo -H ./bootstrap-native.sh --bundle-url "<GITHUB_V6_NATIVE_BUNDLE_URL>" --sha256 "<V6_SHA256_VALUE>" --name "[TEN_USER_LOCAL]" --owner-ids "[OWNER_ID_1,OWNER_ID_2]" --base-url "[BASE_URL]" --model "[MODEL_ID]" --profile basic-assistant-full --module zalo-personal
+sudo -H ./bootstrap-native.sh --bundle-url "https://github.com/giangcr7/openclaw-local-installer/releases/download/v0.2.0-v6-20261006/native-full-bundle.tar.gz" --sha256 "96fa98ccf65a72b04ff58944d73cef7d39f1671a36bc4e259e9d377da6433b8a" --name "[TEN_USER_LOCAL]" --owner-ids "[OWNER_ID_1,OWNER_ID_2]" --base-url "[BASE_URL]" --model "[MODEL_ID]" --profile basic-assistant-full --module zalo-personal
 ```
 
 Windows PowerShell Administrator:
 
 ```powershell
 Set-ExecutionPolicy -Scope Process Bypass
-Invoke-WebRequest -Uri "<GITHUB_V6_BOOTSTRAP_WINDOWS_URL>" -OutFile bootstrap-native.ps1
-.\bootstrap-native.ps1 -BundleUrl "<GITHUB_V6_NATIVE_BUNDLE_URL>" -Sha256 "<V6_SHA256_VALUE>" -Name "[TEN_USER_LOCAL]" -OwnerIds "[OWNER_ID_1,OWNER_ID_2]" -BaseUrl "[BASE_URL]" -Model "[MODEL_ID]" -Profile basic-assistant-full
+Invoke-WebRequest -Uri "https://github.com/giangcr7/openclaw-local-installer/releases/download/v0.2.0-v6-20261006/bootstrap-native.ps1" -OutFile bootstrap-native.ps1
+.\bootstrap-native.ps1 -BundleUrl "https://github.com/giangcr7/openclaw-local-installer/releases/download/v0.2.0-v6-20261006/native-full-bundle.tar.gz" -Sha256 "96fa98ccf65a72b04ff58944d73cef7d39f1671a36bc4e259e9d377da6433b8a" -Name "[TEN_USER_LOCAL]" -OwnerIds "[OWNER_ID_1,OWNER_ID_2]" -BaseUrl "[BASE_URL]" -Model "[MODEL_ID]" -Profile basic-assistant-full
 ```
 
 ## 3. Gắn module về sau
