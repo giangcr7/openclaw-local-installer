@@ -163,3 +163,11 @@ member-module-native list
 Docker member dùng `docker exec user-[TEN_USER] member-module install --module
 [MODULE_ID]`. Sau khi gắn module có credential riêng, phải onboarding/pairing
 trên chính máy đó; cài module không tự đăng nhập Zalo/Facebook/Google Drive.
+
+## 4. Prompt riêng theo hệ điều hành
+
+Để cài nhanh hơn, dùng tài liệu riêng:
+
+- Windows: `PROMPT-CÀI-LOCAL-WINDOWS.md`
+- macOS: `PROMPT-CÀI-LOCAL-MACOS.md`
+- Linux: dùng mục máy local native trong file này và `bootstrap-native.sh`
