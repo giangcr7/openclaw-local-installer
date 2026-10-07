@@ -35,9 +35,9 @@ Bootstrap dùng chung bundle cho cả ba hệ điều hành:
 - macOS: `bootstrap-native.sh` → launchd/local gateway, runtime `/var/root/.openclaw`.
 - Linux: `bootstrap-native.sh` → systemd/local gateway, runtime `/root/.openclaw`.
 
-Trên macOS/Linux phải chạy bằng `root` hoặc `sudo -H`; trên Windows phải chạy PowerShell Administrator. Mỗi launcher tự cài dependency nền tảng tương ứng, đồng bộ 192 skill, áp dụng owner/approval/Full Exec, validate và kiểm tra skill.
+Trên macOS/Linux phải chạy bằng `root` hoặc `sudo -H`; trên Windows phải chạy PowerShell Administrator. Mỗi launcher tự cài dependency nền tảng tương ứng, đồng bộ 193 skill, áp dụng owner/approval/Full Exec, validate và kiểm tra skill.
 
-Bộ native đầy đủ gồm `native-full-bundle.tar.gz`. Khi gửi cho khách, giải nén cùng thư mục với script; bộ này chứa 192 skill đã làm sạch. Installer đồng bộ skill một lần, áp dụng owner policy/approval, cấu hình Full Exec và chạy `openclaw skills check` trước khi restart gateway.
+Bộ native đầy đủ gồm `native-full-bundle.tar.gz`. Khi gửi cho khách, giải nén cùng thư mục với script; bộ này chứa 193 skill đã làm sạch. Installer đồng bộ skill một lần, áp dụng owner policy/approval, cấu hình Full Exec và chạy `openclaw skills check` trước khi restart gateway.
 
 Native Windows là bộ cài cho máy khách không có Docker. Script tự chuẩn bị Node.js, Python 3.12 và FFmpeg (nếu winget có sẵn), giữ đủ owner allowlist, group allowlist và Full Exec `gateway/full` (OpenClaw mới biểu diễn quyền tương đương `security=full`, `ask=off` bằng `mode=full`); gateway vẫn chỉ bind loopback. Golden Docker vẫn giữ cho VPS/phát triển; hai môi trường không dùng chung runtime hoặc credential.
 
